@@ -8,11 +8,11 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.IOException;
 
 public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyComparable, Text> {
-    public final String STRIP_CHARS = "\"";
-    public final String COMMA_SPLITTER = ",";
-    public final int RECORD_NUMBER = 2;
-    public final int KEY = 0;
-    public final int VALUE = 1;
+    static public final String STRIP_CHARS = "\"";
+    static public final String COMMA_SPLITTER = ",";
+    static public final int RECORD_NUMBER = 2;
+    static public final int KEY = 0;
+    static public final int VALUE = 1;
     @Override
     protected void map(LongWritable k, Text line, Context ctx) throws
             IOException, InterruptedException {
