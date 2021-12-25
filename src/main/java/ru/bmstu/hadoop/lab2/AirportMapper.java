@@ -25,7 +25,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
             records[i] = StringUtils.strip(records[i], STRIP_CHARS);
         }
 
-        int airportId = Integer.parseInt(records[KEY]);
+        int airportId = Integer.parseInt(records[KEY] + ",aw");
 
         CompositeKeyComparable key = new CompositeKeyComparable(airportId, CompositeKeyComparable.AIRPORT_KEY);
         ctx.write(key, new Text(records[VALUE]));
