@@ -48,6 +48,11 @@ public class CompositeKeyComparable implements WritableComparable<CompositeKeyCo
         return airportId.get();
     }
 
+    @Override
+    public String toString() {
+        return airportId.toString() + " " + tableType.toString();
+    }
+
     public int getTableType() {
         return tableType.get();
     }
