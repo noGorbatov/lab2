@@ -4,6 +4,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 
@@ -17,6 +18,8 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
         int n = 0;
         int i = 0;
         Text v = new Text();
+        ArrayList<CompositeKeyComparable> keys = new ArrayList<>();
+        keys.add(key);
 
         while (iter.hasNext()) {
             v = iter.next();
@@ -29,6 +32,7 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
             }
             sum += delay;
             n++;
+            keys.add(key);
         }
 
         if (n != 0) {
@@ -42,6 +46,20 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
 
             ctx.write(airportName, new Text(value + " i = " + i + " n = " + n + " " + key.toString()));
         } else {
+            boolean diff = false;
+            for (int j = 0; i < keys.size(); j++) {
+                for (int k = 0; k < keys.size(); k++) {
+                    if (j == k) {
+                        continue;
+                    }
+                    if (keys.get(j).getAirportId() != keys.get(k).getAirportId()) {
+                        diff = true;
+                    }
+                }
+            }
+            if (diff) {
+                ctx.write(airportName, new Text(key.toString()));
+            }
             ctx.write(airportName, new Text(key.toString()));
         }
     }
