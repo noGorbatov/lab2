@@ -11,6 +11,8 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
     public final String STRIP_CHARS = "\"";
     public final String COMMA_SPLITTER = ",";
     public final int RECORD_NUMBER = 2;
+    public final int KEY = 0;
+    public final int VALUE = 1;
     @Override
     protected void map(LongWritable k, Text line, Context ctx) throws
             IOException, InterruptedException {
@@ -20,6 +22,19 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
 
         String record = StringUtils.strip(line.toString(), STRIP_CHARS);
         String records[] = StringUtils.split(record, COMMA_SPLITTER, RECORD_NUMBER);
+        if (records.length != 2) {
+            return;
+        }
+        int airportId;
+        try {
+            airportId = Integer.parseInt(records[KEY]);
+        }
+        catch (NumberFormatException e) {
+            return;
+        }
 
+        CompositeKeyComparable key = new CompositeKeyComparable(CompositeKeyComparable.AIRPORT_KEY, airportId);
+        ctx.write(key, new Text(records[VALUE]));
+        
     }
 }

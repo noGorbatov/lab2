@@ -10,6 +10,8 @@ import java.io.IOException;
 public class CompositeKeyComparable implements WritableComparable<CompositeKeyComparable> {
     private IntWritable airportId;
     private IntWritable tableType;
+    static public final int AIRPORT_KEY = 0;
+    static public final int FLIGHT_KEY = 1;
 
     public CompositeKeyComparable() {
         airportId = new IntWritable(-1);
