@@ -6,6 +6,8 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Iterator;
 
 public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyComparable, Text> {
     public final String STRIP_CHARS = "\"";
@@ -20,12 +22,14 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
             return;
         }
 
-        //String record = StringUtils.strip(line.toString(), STRIP_CHARS);
         String records[] = StringUtils.split(line.toString(), COMMA_SPLITTER, RECORD_NUMBER);
-        records
         if (records.length != 2) {
             return;
         }
+        for (int i = 0; i < records.length; i++) {
+            records[i] = StringUtils.strip(records[i], STRIP_CHARS);
+        }
+
         int airportId;
         try {
             airportId = Integer.parseInt(records[KEY]);
