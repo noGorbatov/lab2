@@ -17,15 +17,15 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
             return;
         }
 
-        String records[] = split(line.toString());
-        String delay = records[DELAY_INDEX];
+        ArrayList<String> records = split(line.toString());
+        String delay = records.get(DELAY_INDEX);
         int airportId;
 
         try {
             if (delay.isEmpty() || Integer.parseInt(delay) <= 0) {
                 return;
             }
-            airportId = Integer.parseInt(records[AIRPORT_INDEX]);
+            airportId = Integer.parseInt(records.get(AIRPORT_INDEX));
         } catch (NumberFormatException e) {
             return;
         }
