@@ -25,11 +25,11 @@ public class CompositeKeyComparable implements WritableComparable<CompositeKeyCo
 
     @Override
     public int compareTo(CompositeKeyComparable key) {
-        int cmp = tableType.compareTo(key.tableType);
+        int cmp = airportId.compareTo(key.airportId);
         if (cmp != 0) {
             return cmp;
         }
-        return airportId.compareTo(key.airportId);
+        return tableType.compareTo(key.tableType);
     }
 
     @Override
