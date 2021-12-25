@@ -10,7 +10,8 @@ public class TableJoinerApp {
     public static void main(String[] args) throws
             IOException, InterruptedException, ClassNotFoundException {
         if (args.length != 2) {
-            System.err.println
+            System.err.println("Usage:");
+            System.exit(-1);
         }
         Job job = Job.getInstance();
 
