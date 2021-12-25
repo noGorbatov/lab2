@@ -35,6 +35,5 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
 
         CompositeKeyComparable key = new CompositeKeyComparable(CompositeKeyComparable.AIRPORT_KEY, airportId);
         ctx.write(key, new Text(records[VALUE]));
-        
     }
 }
