@@ -6,10 +6,15 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class CompositeKeyComparable implements WritableComparable {
-
+public class CompositeKeyComparable implements WritableComparable<CompositeKeyComparable> {
+    private int airportId;
+    private int type;
+    public CompositeKeyComparable() {
+        airportId = 0;
+        type = -1;
+    }
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(CompositeKeyComparable o) {
         return 0;
     }
 
