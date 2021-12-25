@@ -17,6 +17,6 @@ public class TableJoinerApp {
         }
         Job job = Job.getInstance();
         job.setJarByClass(TableJoinerApp.class);
-        MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat, );
+        MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat, AirportMapper.class);
     }
 }
