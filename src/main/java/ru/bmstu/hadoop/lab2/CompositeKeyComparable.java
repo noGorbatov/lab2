@@ -9,16 +9,16 @@ import java.io.IOException;
 
 public class CompositeKeyComparable implements WritableComparable<CompositeKeyComparable> {
     private IntWritable airportId;
-    private IntWritable type;
+    private IntWritable tableType;
 
     public CompositeKeyComparable() {
         airportId = new IntWritable(-1);
-        type = new IntWritable(-1);
+        tableType = new IntWritable(-1);
     }
 
-    public CompositeKeyComparable(int id, int tableType) {
+    public CompositeKeyComparable(int id, int type) {
         airportId = new IntWritable(id);
-        type = new IntWritable(tableType);
+        tableType = new IntWritable(type);
     }
 
     @Override
