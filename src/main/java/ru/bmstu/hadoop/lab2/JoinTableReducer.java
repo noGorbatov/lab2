@@ -17,6 +17,7 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
         int n = 0;
         int i = 0;
         Text v = new Text();
+
         while (iter.hasNext()) {
             v = iter.next();
             double delay = Double.parseDouble(v.toString());
