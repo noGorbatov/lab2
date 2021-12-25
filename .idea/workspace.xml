@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7e01d5e-ca36-4d00-a307-4542b3f20418" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bmstu/hadoop/lab2/CompositeKeyComparable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/bmstu/hadoop/lab2/CompositeKeyComparable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pretty_output/_SUCCESS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pretty_output/part-r-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pretty_output/part-r-00001" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
