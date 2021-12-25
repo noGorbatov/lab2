@@ -22,10 +22,10 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
         int airportId;
 
         try {
-            if (delay.isEmpty() || Integer.parseInt(delay) <= 0) {
+            if (delay.isEmpty() || Double.parseDouble(delay) <= 0) {
                 return;
             }
-            airportId = (int)Double.parseDouble(records.get(AIRPORT_INDEX));
+            airportId = Integer.parseInt(records.get(AIRPORT_INDEX));
         } catch (NumberFormatException e) {
             return;
         }
