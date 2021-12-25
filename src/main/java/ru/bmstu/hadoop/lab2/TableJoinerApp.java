@@ -8,7 +8,8 @@ import java.io.IOException;
 public class TableJoinerApp {
 
     public static void main(String[] args) throws
-            IOException, InterruptedException{
+            IOException, InterruptedException, ClassNotFoundException {
         Job job = Job.getInstance();
+        
     }
 }
