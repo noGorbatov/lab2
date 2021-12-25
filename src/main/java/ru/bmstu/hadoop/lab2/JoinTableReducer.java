@@ -12,7 +12,7 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
     protected void reduce(CompositeKeyComparable key, Iterable<Text> values, Context ctx) throws
             IOException, InterruptedException {
         Iterator<Text> iter = values.iterator();
-        String airportName = iter.next().toString();
+        Text airportName = iter.next();
         int min = Integer.MAX_VALUE, sum = 0, max = 0, n = 0;
         while (iter.hasNext()) {
             int delay = Integer.parseInt(iter.next().toString());
@@ -22,11 +22,13 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
             if (delay > max) {
                 max = delay;
             }
-            sum += 
+            sum += delay;
+            n++;
         }
 
         if (n != 0) {
-
+            String value = "min = " + min + ", max = " + max + ", average = " + sum/n;
+            ctx.write(airportName, new Text(value));
         }
     }
 }
