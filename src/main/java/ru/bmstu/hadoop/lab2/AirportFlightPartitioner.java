@@ -7,6 +7,6 @@ public class AirportFlightPartitioner extends Partitioner<CompositeKeyComparable
 
     @Override
     public int getPartition(CompositeKeyComparable compositeKeyComparable, Text text, int i) {
-        return 0;
+        
     }
 }
