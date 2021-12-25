@@ -20,7 +20,7 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
         Text v = new Text();
         ArrayList<CompositeKeyComparable> keys = new ArrayList<>();
         keys.add(key);
-        System.out.println("Airportname" + airportName);
+        System.out.println("Airportname " + airportName);
 
         while (iter.hasNext()) {
             v = iter.next();
