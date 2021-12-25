@@ -30,10 +30,10 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
         }
 
         if (n != 0) {
-            String value = "min = " + min +
-                    "max = " + max +
-                    "average = " + sum/n +
-                    "number of delayed flights = " + n;
+            String value = "\nmin = " + min +
+                    "\nmax = " + max +
+                    "\naverage = " + sum/n +
+                    "\nnumber of delayed flights = " + n;
             ctx.write(new Text(airportName), new Text(value));
         }
     }
