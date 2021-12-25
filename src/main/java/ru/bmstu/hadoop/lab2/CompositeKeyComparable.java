@@ -23,7 +23,7 @@ public class CompositeKeyComparable implements WritableComparable<CompositeKeyCo
 
     @Override
     public int compareTo(CompositeKeyComparable key) {
-        int cmp = tableType.compareTo(key.tableType);
+        int cmp = tableType.compareTo(key.tableType);  //TODO: возможно поменять приоритет
         if (cmp != 0) {
             return cmp;
         }
