@@ -13,7 +13,7 @@ public class GroupingComparator extends WritableComparator {
         CompositeKeyComparable k2 = (CompositeKeyComparable) o2;
         int id1 = k1.getAirportId();
         int id2 = k2.getAirportId();
-        return id1 < id2 ? -1 : (id1 == id2 ? 0 : 1);
+        return Integer.compare(id1, id2);
 //        return -1;
     }
 }

@@ -25,7 +25,7 @@ public class CompositeKeyComparable implements WritableComparable<CompositeKeyCo
 
     @Override
     public int compareTo(CompositeKeyComparable key) {
-        int cmp = airportId.compareTo(key.airportId);  //TODO: возможно поменять приоритет
+        int cmp = airportId.compareTo(key.airportId);
         if (cmp != 0) {
             return cmp;
         }
