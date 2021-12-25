@@ -47,7 +47,7 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
             ctx.write(airportName, new Text(value + " i = " + i + " n = " + n + " " + key.toString()));
         } else {
             boolean diff = false;
-            for (int j = 0; i < keys.size(); j++) {
+            for (int j = 0; j < keys.size(); j++) {
                 for (int k = 0; k < keys.size(); k++) {
                     if (j == k) {
                         continue;
