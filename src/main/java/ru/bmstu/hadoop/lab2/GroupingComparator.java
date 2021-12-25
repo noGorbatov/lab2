@@ -12,7 +12,8 @@ public class GroupingComparator extends WritableComparator {
 
         int cmp = k1.getAirportId() - k2.getAirportId();
         if (cmp != 0) {
-            
+
         }
+        return k1.
     }
 }
