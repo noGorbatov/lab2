@@ -20,7 +20,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
             return;
         }
 
-        String records[] = StringUtils.split(line.toString(), COMMA_SPLITTER, RECORD_NUMBER);
+        String records[] = StringUtils.split(line.toString(), COMMA_SPLITTER);
 //        if (records.length != 2) {
 //            return;
 //        }
