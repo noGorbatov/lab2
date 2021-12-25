@@ -60,7 +60,7 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
             if (diff) {
                 ctx.write(airportName, new Text(key.toString() + " diff = true"));
             } else {
-                ctx.write(airportName, new Text(key.toString()));
+                ctx.write(airportName, new Text(key.toString() + " n = " + n));
             }
         }
     }
