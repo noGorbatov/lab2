@@ -9,7 +9,6 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import java.io.IOException;
 
 public class TableJoinerApp {
-
     public static void main(String[] args) throws
             IOException, InterruptedException, ClassNotFoundException {
         if (args.length != 3) {
