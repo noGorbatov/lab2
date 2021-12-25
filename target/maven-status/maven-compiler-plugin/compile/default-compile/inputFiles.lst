@@ -1,0 +1,7 @@
+/mnt/data/Distr/lab2/src/main/java/ru/bmstu/hadoop/lab2/JoinTableReducer.java
+/mnt/data/Distr/lab2/src/main/java/ru/bmstu/hadoop/lab2/FlightMapper.java
+/mnt/data/Distr/lab2/src/main/java/ru/bmstu/hadoop/lab2/CompositeKeyComparable.java
+/mnt/data/Distr/lab2/src/main/java/ru/bmstu/hadoop/lab2/AirportFlightPartitioner.java
+/mnt/data/Distr/lab2/src/main/java/ru/bmstu/hadoop/lab2/GroupingComparator.java
+/mnt/data/Distr/lab2/src/main/java/ru/bmstu/hadoop/lab2/TableJoinerApp.java
+/mnt/data/Distr/lab2/src/main/java/ru/bmstu/hadoop/lab2/AirportMapper.java
