@@ -10,6 +10,6 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
     @Override
     protected void map(LongWritable k, Text line, Context ctx) throws
             IOException, InterruptedException {
-
+        
     }
 }
