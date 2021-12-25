@@ -1,11 +1,13 @@
 package ru.bmstu.hadoop.lab2;
 
+import com.sun.org.apache.xpath.internal.operations.String;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyComparable, Text> {
     static final int DELAY_INDEX = 17;
@@ -19,7 +21,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
             return;
         }
 
-        String records[] = StringUtils.split(line.toString(), COMMA_SPLITTER, RECORD_NUMBER);
+        String records[] = split(line.toString());
         if (records.length != 2) {
             return;
         }
@@ -28,7 +30,19 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
         }
     }
 
-    private String[] split(line String) {
+    static private String[] split(String line) {
+        ArrayList<String> records = new ArrayList<>();
+        int lineLen = line.length()
+        StringBuilder currentStr = new StringBuilder();
+        for (int i = 0; i < lineLen; i++) {
+            char c = line.charAt(i);
+            switch (c) {
+                case '"':
+                    break;
+                case ',':
 
+                    currentStr.append(c);
+            }
+        }
     }
 }
