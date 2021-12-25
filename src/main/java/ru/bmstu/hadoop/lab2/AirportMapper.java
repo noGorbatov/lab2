@@ -8,9 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.IOException;
 
 public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyComparable, Text> {
-    final String stripChars = "\"";
-    final String commaSplitter = ",";
-    final int RECORD_NUMBER = 2;
+    public final String STRIP_CHARS = "\"";
+    public final String COMMA_SPLITTER = ",";
+    public final int RECORD_NUMBER = 2;
     @Override
     protected void map(LongWritable k, Text line, Context ctx) throws
             IOException, InterruptedException {
@@ -18,9 +18,8 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
             return;
         }
 
-        String record = StringUtils.strip(line.toString(), stripChars);
-
-        String records[] = StringUtils.split(record, commaSplitter, RECORD_NUMBER);
-
+        String record = StringUtils.strip(line.toString(), STRIP_CHARS);
+        String records[] = StringUtils.split(record, COMMA_SPLITTER, RECORD_NUMBER);
+        
     }
 }
