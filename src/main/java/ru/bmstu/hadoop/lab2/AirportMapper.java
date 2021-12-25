@@ -21,9 +21,9 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
         }
 
         String records[] = StringUtils.split(line.toString(), COMMA_SPLITTER, RECORD_NUMBER);
-        if (records.length != 2) {
-            return;
-        }
+//        if (records.length != 2) {
+//            return;
+//        }
         for (int i = 0; i < records.length; i++) {
             records[i] = StringUtils.strip(records[i], STRIP_CHARS);
         }
