@@ -23,7 +23,7 @@ public class CompositeKeyComparable implements WritableComparable<CompositeKeyCo
 
     @Override
     public int compareTo(CompositeKeyComparable key) {
-        return 0;
+        
     }
 
     @Override
