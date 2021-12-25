@@ -6,8 +6,6 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Iterator;
 
 public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyComparable, Text> {
     public final String STRIP_CHARS = "\"";
