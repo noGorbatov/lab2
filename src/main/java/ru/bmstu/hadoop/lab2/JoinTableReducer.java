@@ -20,10 +20,12 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
         Text v = new Text();
         ArrayList<CompositeKeyComparable> keys = new ArrayList<>();
         keys.add(key);
+        System.out.println(airportName);
 
         while (iter.hasNext()) {
             v = iter.next();
             double delay = Double.parseDouble(v.toString());
+            System.out.println(delay);
             if (delay < min) {
                 min = delay;
             }
