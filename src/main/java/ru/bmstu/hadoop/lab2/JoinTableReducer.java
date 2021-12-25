@@ -15,7 +15,12 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
         Text airportName = iter.next();
         int min = Integer.MAX_VALUE, sum = 0, max = 0, n = 0;
         while (iter.hasNext()) {
-            int delay = Integer.parseInt(iter.next().toString());
+            int delay;
+            try {
+                delay = Integer.parseInt(iter.next().toString());
+            } catch (NumberFormatException e) {
+                continue;
+            }
             if (delay < min) {
                 min = delay;
             }
