@@ -4,7 +4,9 @@ import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
 
 public class GroupingComparator extends WritableComparator {
-    public
+    public GroupingComparator() {
+        super(CompositeKeyComparable.class, true);
+    }
     @Override
     public int compare(WritableComparable o1, WritableComparable o2) {
         CompositeKeyComparable k1 = (CompositeKeyComparable) o1;
