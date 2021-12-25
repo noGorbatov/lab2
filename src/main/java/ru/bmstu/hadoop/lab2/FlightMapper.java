@@ -38,6 +38,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
         ArrayList<String> records = new ArrayList<>();
         int lineLen = line.length();
         StringBuilder currentStr = new StringBuilder();
+        
         for (int i = 0; i < lineLen; i++) {
             char c = line.charAt(i);
             switch (c) {
