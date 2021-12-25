@@ -20,7 +20,7 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
             try {
                 delay = Double.parseDouble(iter.next().toString());
             } catch (NumberFormatException e) {
-                
+
             }
             if (delay < min) {
                 min = delay;
