@@ -1,2 +1,4 @@
-package ru.bmstu.hadoop.lab2;public class AirportComparable {
+package ru.bmstu.hadoop.lab2;
+
+public class AirportComparable {
 }
