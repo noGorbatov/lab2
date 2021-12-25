@@ -12,12 +12,15 @@ public class AirportWritable implements Writable {
     public AirportWritable() {
         name = new Text();
     }
+
     public AirportWritable(Text airportName) {
         name = airportName;
     }
+
     public void set(Text airportName) {
         name = airportName;
     }
+    
     @Override
     public void write(DataOutput dataOutput) throws IOException {
         name.write(dataOutput);
