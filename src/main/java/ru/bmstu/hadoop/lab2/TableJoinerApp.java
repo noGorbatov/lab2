@@ -1,6 +1,7 @@
 package ru.bmstu.hadoop.lab2;
 
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
@@ -22,6 +23,7 @@ public class TableJoinerApp {
         job.setJarByClass(TableJoinerApp.class);
         MultipleInputs.addInputPath(job, airportsPath, TextInputFormat.class, AirportMapper.class);
         MultipleInputs.addInputPath(job, flightsPath, TextInputFormat.class, FlightMapper.class);
+        FileOutputFormat.setOutputPath(job, outPath);
         job.setReducerClass(JoinTableReducer.class);
         job.setNumReduceTasks(2);
     }
