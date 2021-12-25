@@ -13,13 +13,14 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
             IOException, InterruptedException {
         Iterator<Text> iter = values.iterator();
         Text airportName = iter.next();
-        double min = Integer.MAX_VALUE, sum = 0, max = 0, n = 0;
+        double min = Integer.MAX_VALUE, sum = 0, max = 0;
+        int n = 0;
         while (iter.hasNext()) {
-            double delay;
+            double delay = 0;
             try {
                 delay = Double.parseDouble(iter.next().toString());
             } catch (NumberFormatException e) {
-                continue;
+
             }
             if (delay < min) {
                 min = delay;
