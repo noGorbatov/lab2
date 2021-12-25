@@ -5,7 +5,6 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyComparable, Text> {
     static final int DELAY_INDEX = 17;
@@ -26,27 +25,5 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
 
         CompositeKeyComparable key = new CompositeKeyComparable(airportId, CompositeKeyComparable.FLIGHT_KEY);
         ctx.write(key, new Text(delay));
-    }
-
-    static private ArrayList<String> split(String line) {
-        ArrayList<String> records = new ArrayList<>();
-        int lineLen = line.length();
-        StringBuilder currentStr = new StringBuilder();
-
-        for (int i = 0; i < lineLen; i++) {
-            char c = line.charAt(i);
-            switch (c) {
-                case '"':
-                    break;
-                case ',':
-                    records.add(currentStr.toString());
-                    currentStr = new StringBuilder();
-                    break;
-                default:
-                    currentStr.append(c);
-            }
-        }
-
-        return records;
     }
 }

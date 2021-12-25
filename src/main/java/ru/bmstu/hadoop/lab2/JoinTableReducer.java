@@ -12,8 +12,8 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
     protected void reduce(CompositeKeyComparable key, Iterable<Text> values, Context ctx) throws
             IOException, InterruptedException {
         Iterator<Text> iter = values.iterator();
-//        String airportName = iter.next().toString();
-        Text airportName = iter.next();
+        String airportName = iter.next().toString();
+//        Text airportName = iter.next();
         double min = Integer.MAX_VALUE, sum = 0, max = 0;
         int n = 0;
         int i = 0;
@@ -35,7 +35,7 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
 
         if (n != 0) {
             String value = "min = " + min + ", max = " + max + ", average = " + sum/n;
-            ctx.write(airportName, new Text(value + " n = " + n + " " + key.toString()));
+            ctx.write(new Text(airportName), new Text(value + " n = " + n + " " + key.toString()));
         }
     }
 }
