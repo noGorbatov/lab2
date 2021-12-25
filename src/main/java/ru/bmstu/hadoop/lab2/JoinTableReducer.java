@@ -37,8 +37,12 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
             String value = "min = " + min + ", max = " + max + ", average = " + sum/n;
             Iterator<Text> it = values.iterator();
             it.next();
+            String v = "";
+            if (it.hasNext()) {
+                v = it.next().toString();
+            }
 
-            ctx.write(airportName, new Text(value + " i = " + i + " " + it.next().toString()));
+            ctx.write(airportName, new Text(value + " i = " + i + " " + v));
         } else {
             ctx.write(airportName, new Text(key.toString()));
         }
