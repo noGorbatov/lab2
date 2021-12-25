@@ -19,7 +19,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
         }
 
         String records[] = split(line.toString());
-        if ()
+        String
     }
 
     static private String[] split(String line) {
