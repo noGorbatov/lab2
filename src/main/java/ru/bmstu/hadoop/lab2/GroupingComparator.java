@@ -11,7 +11,7 @@ public class GroupingComparator extends WritableComparator {
     public int compare(WritableComparable o1, WritableComparable o2) {
         CompositeKeyComparable k1 = (CompositeKeyComparable) o1;
         CompositeKeyComparable k2 = (CompositeKeyComparable) o2;
-
+        
         return k1.getAirportId() - k2.getAirportId();
     }
 }
