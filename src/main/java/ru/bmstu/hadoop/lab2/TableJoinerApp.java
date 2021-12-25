@@ -20,18 +20,25 @@ public class TableJoinerApp {
         Path airportsPath = new Path(args[0]);
         Path flightsPath = new Path(args[1]);
         Path outPath = new Path(args[2]);
+
         job.setJarByClass(TableJoinerApp.class);
+
         MultipleInputs.addInputPath(job, airportsPath, TextInputFormat.class, AirportMapper.class);
         MultipleInputs.addInputPath(job, flightsPath, TextInputFormat.class, FlightMapper.class);
+
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
+
         job.setMapOutputKeyClass(CompositeKeyComparable.class);
         job.setMapOutputValueClass(Text.class);
         FileOutputFormat.setOutputPath(job, outPath);
+
         job.setReducerClass(JoinTableReducer.class);
         job.setNumReduceTasks(2);
+
         job.setPartitionerClass(AirportFlightPartitioner.class);
         job.setGroupingComparatorClass(GroupingComparator.class);
+
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
