@@ -1,6 +1,7 @@
 package ru.bmstu.hadoop.lab2;
 
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.mapred.lib.MultipleInputs;
 import org.apache.hadoop.mapreduce.Job;
 
 import java.io.IOException;
@@ -15,6 +16,6 @@ public class TableJoinerApp {
         }
         Job job = Job.getInstance();
         job.setJarByClass(TableJoinerApp.class);
-        
+        MultipleInputs.addInputPath();
     }
 }
