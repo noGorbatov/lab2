@@ -18,13 +18,8 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
         int i = 0;
         Text v = new Text();
         while (iter.hasNext()) {
-            double delay = 0;
-            try {
-                v = iter.next();
-                delay = Double.parseDouble(v.toString());
-            } catch (NumberFormatException e) {
-                i = n;
-            }
+            v = iter.next();
+            double delay = Double.parseDouble(v.toString());
             if (delay < min) {
                 min = delay;
             }
