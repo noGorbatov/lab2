@@ -32,11 +32,13 @@ public class CompositeKeyComparable implements WritableComparable<CompositeKeyCo
 
     @Override
     public void write(DataOutput dataOutput) throws IOException {
-        
+        airportId.write(dataOutput);
+        tableType.write(dataOutput);
     }
 
     @Override
     public void readFields(DataInput dataInput) throws IOException {
-
+        airportId.readFields(dataInput);
+        tableType.readFields(dataInput);
     }
 }
