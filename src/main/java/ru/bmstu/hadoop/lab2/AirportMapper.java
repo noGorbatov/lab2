@@ -15,7 +15,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
     static public final int VALUE = 1;
     @Override
     protected void map(LongWritable k, Text line, Context ctx) throws
-            IOException, InterruptedException, NumberFormatException {
+            IOException, InterruptedException {
         if (k.get() == 0) {
             return;
         }
