@@ -12,15 +12,16 @@ public class TableJoinerApp {
     public static void main(String[] args) throws
             IOException, InterruptedException, ClassNotFoundException {
         if (args.length != 3) {
-            System.err.println("Usage: tablejoinerapp <airport table> <flights table> <output dir>");
+            System.err.println("Usage: tablejoinerapp <airports table> <flights table> <output dir>");
             System.exit(-1);
         }
         Job job = Job.getInstance();
-        Path airportPath = new Path(args[0]);
+        Path airportsPath = new Path(args[0]);
         Path flightsPath = new Path(args[1]);
         Path outPath = new Path(args[2]);
         job.setJarByClass(TableJoinerApp.class);
-        MultipleInputs.addInputPath(job, , TextInputFormat.class, AirportMapper.class);
-        MultipleInputs.addInput
+        MultipleInputs.addInputPath(job, airportsPath, TextInputFormat.class, AirportMapper.class);
+        MultipleInputs.addInputPath(job, flightsPath, TextInputFormat.class, FlightMapper.class);
+        job.setReducerClass(JoinTableReducer.class);
     }
 }
