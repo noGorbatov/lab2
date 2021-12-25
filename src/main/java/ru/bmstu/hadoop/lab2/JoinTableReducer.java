@@ -44,7 +44,7 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
 //                v = it.next().toString();
 //            }
 
-            ctx.write(airportName, new Text(value + " i = " + i + " " + v.toString()));
+            ctx.write(new Text(key.toString()), new Text(value + " i = " + i + " " + v.toString()));
         } else {
             ctx.write(airportName, new Text(key.toString()));
         }
