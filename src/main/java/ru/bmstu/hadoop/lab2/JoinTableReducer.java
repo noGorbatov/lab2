@@ -6,5 +6,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text, Text> {
     @Override
-    
+    protected void reduce(CompositeKeyComparable key, Iterable<Text> values, Context ctx) {
+        
+    }
 }
