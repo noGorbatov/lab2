@@ -41,4 +41,12 @@ public class CompositeKeyComparable implements WritableComparable<CompositeKeyCo
         airportId.readFields(dataInput);
         tableType.readFields(dataInput);
     }
+
+    public int getAirportId() {
+        return airportId.get();
+    }
+
+    public int getTableType() {
+        return tableType.get();
+    }
 }

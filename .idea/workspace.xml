@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7e01d5e-ca36-4d00-a307-4542b3f20418" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bmstu/hadoop/lab2/CompositeKeyComparable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/bmstu/hadoop/lab2/CompositeKeyComparable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/bmstu/hadoop/lab2/GroupingComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/bmstu/hadoop/lab2/GroupingComparator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

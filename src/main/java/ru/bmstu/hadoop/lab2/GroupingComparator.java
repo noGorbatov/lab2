@@ -1,15 +1,15 @@
 package ru.bmstu.hadoop.lab2;
 
 import org.apache.hadoop.io.RawComparator;
+import org.apache.hadoop.io.WritableComparable;
+import org.apache.hadoop.io.WritableComparator;
 
-public class GroupingComparator implements RawComparator {
+public class GroupingComparator extends WritableComparator {
     @Override
-    public int compare(byte[] bytes, int i, int i1, byte[] bytes1, int i2, int i3) {
-        return 0;
-    }
+    public int compare(WritableComparable o1, WritableComparable o2) {
+        CompositeKeyComparable k1 = (CompositeKeyComparable) o1;
+        CompositeKeyComparable k2 = (CompositeKeyComparable) o2;
 
-    @Override
-    public int compare(Object o1, Object o2) {
-        return 0;
+        if (k1.getAirportId())
     }
 }
