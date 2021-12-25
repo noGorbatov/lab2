@@ -1,4 +1,7 @@
 package ru.bmstu.hadoop.lab2;
 
-public class AirportComparable {
+import org.apache.hadoop.io.Writable;
+
+public class AirportComparable implements Writable {
+
 }
