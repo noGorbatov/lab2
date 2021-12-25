@@ -25,7 +25,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
             if (delay.isEmpty() || Integer.parseInt(delay) <= 0) {
                 return;
             }
-            airportId = Integer.parseInt(records.get(AIRPORT_INDEX));
+            airportId = (int)Double.parseDouble(records.get(AIRPORT_INDEX));
         } catch (NumberFormatException e) {
             return;
         }

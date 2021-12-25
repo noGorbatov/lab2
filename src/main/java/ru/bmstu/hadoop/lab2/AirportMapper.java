@@ -30,7 +30,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
 
         int airportId;
         try {
-            airportId = Integer.parseInt(records[KEY]);
+            airportId = (int)Double.parseDouble(records[KEY]);
         }
         catch (NumberFormatException e) {
             return;
