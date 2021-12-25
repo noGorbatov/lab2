@@ -19,16 +19,19 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
 
         String records[] = split(line.toString());
         String delay = records[DELAY_INDEX];
+        int airportId;
 
         try {
             if (delay.isEmpty() || Integer.parseInt(delay) <= 0) {
                 return;
             }
-        } catch ()
-        String airportId;
+            airportId = Integer.parseInt(records[AIRPORT_INDEX]);
+        } catch (NumberFormatException e) {
+            return;
+        }
 
-
-        CompositeKeyComparable key = new CompositeKeyComparable()
+        CompositeKeyComparable key = new CompositeKeyComparable(airportId, CompositeKeyComparable.FLIGHT_KEY);
+        ctx.write(key, new Text(delay));
     }
 
     static private String[] split(String line) {
