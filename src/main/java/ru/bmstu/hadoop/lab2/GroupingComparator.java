@@ -10,10 +10,6 @@ public class GroupingComparator extends WritableComparator {
         CompositeKeyComparable k1 = (CompositeKeyComparable) o1;
         CompositeKeyComparable k2 = (CompositeKeyComparable) o2;
 
-        int cmp = k1.getAirportId() - k2.getAirportId();
-        if (cmp != 0) {
-
-        }
-        return k1.
+        return k1.getAirportId() - k2.getAirportId();
     }
 }
