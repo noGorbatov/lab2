@@ -14,6 +14,6 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
             return;
         }
 
-
+        
     }
 }
