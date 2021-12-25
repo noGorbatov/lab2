@@ -25,5 +25,6 @@ public class TableJoinerApp {
         FileOutputFormat.setOutputPath(job, outPath);
         job.setReducerClass(JoinTableReducer.class);
         job.setNumReduceTasks(2);
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
