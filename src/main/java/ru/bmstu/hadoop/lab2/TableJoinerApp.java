@@ -30,6 +30,8 @@ public class TableJoinerApp {
         FileOutputFormat.setOutputPath(job, outPath);
         job.setReducerClass(JoinTableReducer.class);
         job.setNumReduceTasks(2);
+        job.setPartitionerClass(AirportFlightPartitioner.class);
+        job.setGroupingComparatorClass(GroupingComparator.class);
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
