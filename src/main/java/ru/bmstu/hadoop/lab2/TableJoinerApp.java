@@ -14,6 +14,7 @@ public class TableJoinerApp {
             System.exit(-1);
         }
         Job job = Job.getInstance();
-
+        job.setJarByClass(TableJoinerApp.class);
+        
     }
 }
