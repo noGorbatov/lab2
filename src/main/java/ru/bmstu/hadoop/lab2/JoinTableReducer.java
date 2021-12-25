@@ -14,7 +14,7 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
         Iterator<Text> iter = values.iterator();
         String airportName = iter.next().toString();
         while (iter.hasNext()) {
-
+            
         }
     }
 }
