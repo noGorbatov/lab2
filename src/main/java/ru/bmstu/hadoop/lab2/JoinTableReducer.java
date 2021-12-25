@@ -16,10 +16,12 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
         double min = Integer.MAX_VALUE, sum = 0, max = 0;
         int n = 0;
         int i = 0;
+        Text v = new Text();
         while (iter.hasNext()) {
             double delay = 0;
             try {
-                delay = Double.parseDouble(iter.next().toString());
+                v = iter.next();
+                delay = Double.parseDouble(v.toString());
             } catch (NumberFormatException e) {
                 i = n;
             }
@@ -35,14 +37,14 @@ public class JoinTableReducer extends Reducer<CompositeKeyComparable, Text, Text
 
         if (n != 0) {
             String value = "min = " + min + ", max = " + max + ", average = " + sum/n;
-            Iterator<Text> it = values.iterator();
-            it.next();
-            String v = "";
-            if (it.hasNext()) {
-                v = it.next().toString();
-            }
+//            Iterator<Text> it = values.iterator();
+//            it.next();
+//            String v = "";
+//            if (it.hasNext()) {
+//                v = it.next().toString();
+//            }
 
-            ctx.write(airportName, new Text(value + " i = " + i + " " + v));
+            ctx.write(airportName, new Text(value + " i = " + i + " " + v.toString()));
         } else {
             ctx.write(airportName, new Text(key.toString()));
         }
