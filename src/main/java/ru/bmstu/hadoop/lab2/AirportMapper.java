@@ -20,7 +20,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
             return;
         }
 
-        String records[] = StringUtils.split(line.toString(), COMMA_SPLITTER);
+        String records[] = StringUtils.split(line.toString(), COMMA_SPLITTER, RECORD_NUMBER);
 //        if (records.length != 2) {
 //            return;
 //        }
@@ -29,12 +29,12 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
         }
 
         int airportId;
-        try {
-            airportId = Integer.parseInt(records[KEY]);
-        }
-        catch (NumberFormatException e) {
-            return;
-        }
+//        try {
+        airportId = Integer.parseInt(records[KEY]);
+//        }
+//        catch (NumberFormatException e) {
+//            return;
+//        }
 
         CompositeKeyComparable key = new CompositeKeyComparable(CompositeKeyComparable.AIRPORT_KEY, airportId);
         ctx.write(key, new Text(records[VALUE]));
