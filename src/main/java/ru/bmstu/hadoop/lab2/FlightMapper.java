@@ -1,6 +1,5 @@
 package ru.bmstu.hadoop.lab2;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -19,7 +18,17 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
         }
 
         String records[] = split(line.toString());
-        String
+        String delay = records[DELAY_INDEX];
+
+        try {
+            if (delay.isEmpty() || Integer.parseInt(delay) <= 0) {
+                return;
+            }
+        } catch ()
+        String airportId;
+
+
+        CompositeKeyComparable key = new CompositeKeyComparable()
     }
 
     static private String[] split(String line) {
