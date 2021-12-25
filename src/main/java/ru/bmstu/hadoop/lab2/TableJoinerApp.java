@@ -5,6 +5,6 @@ import org.apache.hadoop.fs.Path;
 public class TableJoinerApp {
 
     public static void main(String[] args) {
-
+        
     }
 }
