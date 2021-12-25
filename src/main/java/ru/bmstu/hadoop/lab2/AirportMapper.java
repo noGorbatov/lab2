@@ -21,20 +21,11 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
         }
 
         String records[] = StringUtils.split(line.toString(), COMMA_SPLITTER, RECORD_NUMBER);
-//        if (records.length != 2) {
-//            return;
-//        }
         for (int i = 0; i < records.length; i++) {
             records[i] = StringUtils.strip(records[i], STRIP_CHARS);
         }
 
-        int airportId;
-//        try {
-        airportId = Integer.parseInt(records[KEY]);
-//        }
-//        catch (NumberFormatException e) {
-//            return;
-//        }
+        int airportId = Integer.parseInt(records[KEY]);
 
         CompositeKeyComparable key = new CompositeKeyComparable(airportId, CompositeKeyComparable.AIRPORT_KEY);
         ctx.write(key, new Text(records[VALUE]));

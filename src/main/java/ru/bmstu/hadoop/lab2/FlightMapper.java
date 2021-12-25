@@ -19,14 +19,8 @@ public class FlightMapper extends Mapper<LongWritable, Text, CompositeKeyCompara
 
         ArrayList<String> records = split(line.toString());
         String delay = records.get(DELAY_INDEX);
-        int airportId;
-
-        try {
-            if (delay.isEmpty() || Double.parseDouble(delay) <= 0) {
-                return;
-            }
-            airportId = Integer.parseInt(records.get(AIRPORT_INDEX));
-        } catch (NumberFormatException e) {
+        int airportId = Integer.parseInt(records.get(AIRPORT_INDEX));;
+        if (delay.isEmpty() || Double.parseDouble(delay) <= 0) {
             return;
         }
 
