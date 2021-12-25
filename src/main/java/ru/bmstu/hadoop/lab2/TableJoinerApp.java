@@ -22,6 +22,7 @@ public class TableJoinerApp {
         job.setJarByClass(TableJoinerApp.class);
         MultipleInputs.addInputPath(job, airportsPath, TextInputFormat.class, AirportMapper.class);
         MultipleInputs.addInputPath(job, flightsPath, TextInputFormat.class, FlightMapper.class);
+        job.setInputKeyClass
         FileOutputFormat.setOutputPath(job, outPath);
         job.setReducerClass(JoinTableReducer.class);
         job.setNumReduceTasks(2);
