@@ -10,6 +10,8 @@ public class AirportMapper extends Mapper<LongWritable, Text, CompositeKeyCompar
     @Override
     protected void map(LongWritable k, Text line, Context ctx) throws
             IOException, InterruptedException {
+        if k.compareTo(0) == 0 {
 
+        }
     }
 }
