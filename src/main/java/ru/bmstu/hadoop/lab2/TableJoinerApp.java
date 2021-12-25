@@ -12,7 +12,7 @@ public class TableJoinerApp {
     public static void main(String[] args) throws
             IOException, InterruptedException, ClassNotFoundException {
         if (args.length != 3) {
-            System.err.println("Usage:");
+            System.err.println("Usage: tablejoinerapp <airport table> <flights table> <output dir>");
             System.exit(-1);
         }
         Job job = Job.getInstance();
@@ -21,6 +21,6 @@ public class TableJoinerApp {
         Path outPath = new Path(args[2]);
         job.setJarByClass(TableJoinerApp.class);
         MultipleInputs.addInputPath(job, , TextInputFormat.class, AirportMapper.class);
-        MultipleInputs
+        MultipleInputs.addInput
     }
 }
