@@ -11,7 +11,7 @@ public class TableJoinerApp {
 
     public static void main(String[] args) throws
             IOException, InterruptedException, ClassNotFoundException {
-        if (args.length != 2) {
+        if (args.length != 3) {
             System.err.println("Usage:");
             System.exit(-1);
         }
